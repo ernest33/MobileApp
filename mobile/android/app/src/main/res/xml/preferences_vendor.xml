@@ -15,10 +15,11 @@
 
     <org.mozilla.gecko.preferences.LinkPreference android:key="android.not_a_preference.faq.link"
                                                   android:title="@string/pref_vendor_faqs"
-                                                  android:persistent="false"/>
+                                                  android:persistent="false"
+                                                />
 
-    <org.mozilla.gecko.preferences.LinkPreference android:key="android.not_a_preference.feedback.link"
+    <!-- <org.mozilla.gecko.preferences.LinkPreference android:key="android.not_a_preference.feedback.link"
                                                   android:title="@string/pref_vendor_feedback"
-                                                  android:persistent="false"/>
+                                                  android:persistent="false"/> -->
 
 </PreferenceScreen>

@@ -3,8 +3,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="@ANDROID_PACKAGE_NAME@"
       android:installLocation="internalOnly"
-      android:versionCode="@ANDROID_VERSION_CODE@"
-      android:versionName="@MOZ_APP_VERSION@"
+      android:versionCode="17248"
+      android:versionName="2.0.3"
 #ifdef MOZ_ANDROID_SHARED_ID
       android:sharedUserId="@MOZ_ANDROID_SHARED_ID@"
 #endif
@@ -33,7 +33,7 @@
 # be parenthesized thus to clarify that the logical AND operator has precedence:
 #   !defined(MOZILLA_OFFICIAL) || (defined(NIGHTLY_BUILD) && defined(MOZ_DEBUG))
 #if !defined(MOZILLA_OFFICIAL) || defined(NIGHTLY_BUILD) && defined(MOZ_DEBUG)
-                 android:debuggable="true">
+                 android:debuggable="false">
 #else
                  android:debuggable="false">
 #endif
@@ -220,6 +220,14 @@
           <intent-filter>
             <action android:name="android.intent.action.GET_RESTRICTION_ENTRIES" />
           </intent-filter>
+        </receiver>
+
+        <receiver android:name="org.mozilla.gecko.widget.QwantAppWidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                       android:resource="@xml/qwant_appwidget_info" />
         </receiver>
 
         <!-- Masquerade as the Resolver so that we can be opened from the Marketplace. -->
@@ -424,7 +432,7 @@
             </intent-filter>
         </service>
 
-#include ../services/manifests/FxAccountAndroidManifest_services.xml.in
+
 
         <service
             android:name="org.mozilla.gecko.tabqueue.TabReceivedService"
