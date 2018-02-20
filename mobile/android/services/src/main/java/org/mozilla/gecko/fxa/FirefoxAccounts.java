@@ -34,7 +34,7 @@ public class FirefoxAccounts {
    * @return true if at least one Firefox account exists.
    */
   public static boolean firefoxAccountsExist(final Context context) {
-    return getFirefoxAccounts(context).length > 0;
+    return false;
   }
 
   /**
@@ -50,12 +50,6 @@ public class FirefoxAccounts {
    * @return Firefox account objects.
    */
   public static Account[] getFirefoxAccounts(final Context context) {
-    final Account[] accounts =
-        AccountManager.get(context).getAccountsByType(FxAccountConstants.ACCOUNT_TYPE);
-    if (accounts.length > 0) {
-      return accounts;
-    }
-
     final Account pickledAccount = getPickledAccount(context);
     return (pickledAccount != null) ? new Account[] {pickledAccount} : new Account[0];
   }
