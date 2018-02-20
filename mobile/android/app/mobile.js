@@ -357,8 +357,8 @@ pref("privacy.item.downloads", true);
 pref("privacy.item.passwords", true);
 pref("privacy.item.sessions", true);
 pref("privacy.item.geolocation", true);
-pref("privacy.item.siteSettings", true);
-pref("privacy.item.syncAccount", true);
+// pref("privacy.item.siteSettings", true);
+// pref("privacy.item.syncAccount", true);
 
 // enable geo
 pref("geo.enabled", false);
